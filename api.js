@@ -1,18 +1,21 @@
-const express = require("express");
+const express = require('express');
 
 const app = express();
 
-app.use(express.static("public"));
+app.use(express.static('public'));
 
-app.get("/", (req, res) => {
-  if (req.method === "GET") {
-    res.send("Hello from Node.js API!");
-    // res.status(200).json(['goal1', 'goal2']);
-  }
-  //     else if (req.method === 'POST') {
-  // res.status(201).json({ message: 'Created' });
-  // }
+app.get('/', (req, res) => {
+  res.send('Hello from Node.js API!');
 });
+
+
+
+const PORT = process.env.PORT || 3000;
+app.use(express.json());
+app.listen(PORT, () => {
+  console.log(`Server is running at http://localhost:${PORT}`);
+});
+
 
 let goals = [
   { id: 1, title: "Learn Express" },
@@ -45,7 +48,3 @@ app.delete("/api/goals/:id", (req, res) => {
   goals = goals.filter((g) => g.id !== id);
   res.json({ message: "Deleted successfully" });
 });
-
-export default function handler(req, res) {
-  res.status(200).json({ message: "Hello from Serverless Function!" });
-}
