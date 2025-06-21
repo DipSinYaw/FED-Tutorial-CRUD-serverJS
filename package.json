@@ -1,0 +1,12 @@
+{
+  "name": "fed-tutorial-crud-serverjs",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "node sever.js",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
