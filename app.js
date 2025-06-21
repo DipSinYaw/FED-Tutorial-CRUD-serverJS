@@ -35,6 +35,9 @@ app.delete("/api/goals/:id", (req, res) => {
   res.json({ message: "Deleted successfully" });
 });
 
+export default function handler(req, res) {
+  res.status(200).json({ message: "Hello from Serverless Function!" });
+}
 
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
