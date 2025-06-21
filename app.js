@@ -12,13 +12,13 @@ app.get("/api/goals", (req, res) => {
   res.json(goals);
 });
 
-app.post("/goals", (req, res) => {
+app.post("/api/goals", (req, res) => {
   let newGoal = { id: Date.now(), ...req.body };
   goals.push(newGoal);
   res.status(201).json(newGoal);
 });
 
-app.put("/goals/:id", (req, res) => {
+app.put("/api/goals/:id", (req, res) => {
   let id = parseInt(req.params.id);
   let index = goals.findIndex((g) => g.id === id);
   if (index !== -1) {
@@ -29,7 +29,7 @@ app.put("/goals/:id", (req, res) => {
   }
 });
 
-app.delete("/goals/:id", (req, res) => {
+app.delete("/api/goals/:id", (req, res) => {
   let id = parseInt(req.params.id);
   goals = goals.filter((g) => g.id !== id);
   res.json({ message: "Deleted successfully" });
