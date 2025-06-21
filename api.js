@@ -2,7 +2,7 @@ const express = require('express');
 
 const app = express();
 
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
 app.get('/', (req, res) => {
   res.send('Hello from Node.js API!');
@@ -11,7 +11,9 @@ app.get('/', (req, res) => {
 
 
 const PORT = process.env.PORT || 3000;
+
 app.use(express.json());
+
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
 });
